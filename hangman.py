@@ -27,7 +27,7 @@ def run():
 
        # Error checking: user might enter a non-alpha character, more than one character, or a previous guess.
         while True:
-            letter = raw_input("Guess a letter: ")
+            letter = raw_input("Guess a letter: ").lower()
             if len(letter) != 1 or letter.isalpha() == False:
                 print "Oops! That's not a letter. Try again."
                 print ""
@@ -44,7 +44,7 @@ def run():
             word[letter] = True
             print_word(word, random_word)
             if check_win(word):
-                print "You win! No hangings today..."
+                print "You win! No hangings today...\n\n"
                 break
             print "Good job, that's a letter!"
         else:
@@ -54,7 +54,7 @@ def run():
             draw(num_guesses)
 
     if num_guesses == 0:
-        print "Sorry, but the man hangs! The word was", random_word, "."
+        print "Sorry, but the man hangs! The word was " + random_word + ".\n\n"
 
     while True:
         go_again = raw_input("Do you want to play again (Y or N)?")
